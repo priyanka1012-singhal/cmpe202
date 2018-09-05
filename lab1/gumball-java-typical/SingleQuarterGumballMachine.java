@@ -2,8 +2,8 @@
 /**
  * class SingleQuarterGumballMachine - This class accepts only Quarters and returns a gumball when the crank is turned.
  *
- * @Priyanka.singhal
- * @Sep 4,2018
+ * @author Priyanka Singhal
+ * @version 1.0
  */
 public class SingleQuarterGumballMachine extends GumballMachine
 {
@@ -51,6 +51,6 @@ public class SingleQuarterGumballMachine extends GumballMachine
     }
     
     public String toString(){
-       return this.getName();
+       return this.getName()+ "\nNumber of Gumballs: " + this.num_gumballs ;
     } 
 }

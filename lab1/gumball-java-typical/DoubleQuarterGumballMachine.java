@@ -1,8 +1,8 @@
 /**
  * class DoubleQuarterGumballMachine - This class accepts two Quarters and returns a gumball when the crank is turned.
  * 
- * @Priyanka.singhal
- * @Sep 4,2018
+ * @author Priyanka Singhal
+ * @version 1.0
  */
 public class DoubleQuarterGumballMachine extends GumballMachine
 {
@@ -27,19 +27,24 @@ public class DoubleQuarterGumballMachine extends GumballMachine
     {
         if ( coin == 25 )
         {
-            this.has_quarter = true ;
-            sum+=coin;
+            sum += coin;
+            if(sum == 50)
+                this.has_quarter = true;
         }    
-        else 
-            this.has_quarter = false ;
+        else
+        {
+          this.has_quarter = false ;
+        }
+            
     }
     
     public void turnCrank()
     {
-        if ( this.has_quarter && this.sum == 50)
+        if ( this.has_quarter)
         {
             if ( this.num_gumballs > 0 )
             {
+                this.sum = 0;
                 this.num_gumballs-- ;
                 this.has_quarter = false ;
                 System.out.println( "Thanks for your quarter.  Gumball Ejected!" ) ;
@@ -51,14 +56,11 @@ public class DoubleQuarterGumballMachine extends GumballMachine
         }
         else 
         {
-            if(this.sum > 0)
-                System.out.println( "Please insert a Quarter. Balance: "+this.sum) ;
-            else
                 System.out.println( "Please insert a Quarter." ) ;
         }        
     }
     
     public String toString(){
-       return this.getName();
+       return this.getName()+ "\nNumber of Gumballs: " + this.num_gumballs ;
     } 
 }

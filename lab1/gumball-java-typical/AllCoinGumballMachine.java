@@ -1,13 +1,14 @@
 /**
- * class AllCoinGumballMachine - This class accepts all coins: dimes, nickels and Quarters and returns a gumball when the crank is turned.
+ * class AllCoinGumballMachine - This class accepts all coins: dimes, nickels and Quarters and returns a gumball when the 
+ * crank is turned.
  *
- * @Priyanka.singhal
- * @Sep 4,2018
+ * @author Priyanka Singhal
+ * @version 1.0
  */
 public class AllCoinGumballMachine extends GumballMachine
 {
     private int num_gumballs;
-    private boolean has_coin;
+    private boolean has_quarter;
     private int sum;
     public static final String MACHINE_NAME = "All Coins Gumball Machine";
 
@@ -15,7 +16,7 @@ public class AllCoinGumballMachine extends GumballMachine
     {
         // initialise instance variables
         this.num_gumballs = size;
-        this.has_coin = false;
+        this.has_quarter = false;
         this.sum = 0;
     }
     
@@ -26,38 +27,35 @@ public class AllCoinGumballMachine extends GumballMachine
     {
         if ( coin == 25 || coin == 5 || coin == 10)
         {
-             this.has_coin = true ;
-             sum+=coin;
+            sum += coin;
+            if(sum == 50)
+                this.has_quarter = true;
         }
         else 
-            this.has_coin = false ;
+            this.has_quarter = false ;
     }
-    
     public void turnCrank()
     {
-        if ( this.has_coin && this.sum == 50 )
+        if ( this.has_quarter)
         {
             if ( this.num_gumballs > 0 )
             {
+                this.sum = 0;
                 this.num_gumballs-- ;
-                this.has_coin = false ;
-                System.out.println( "Thanks for the coin(s).  Gumball Ejected!" ) ;
+                this.has_quarter = false ;
+                System.out.println( "Thanks for your quarter.  Gumball Ejected!" ) ;
             }
             else
             {
-                System.out.println( "No More Gumballs!  Sorry, can't return your coin(s)." ) ;
+                System.out.println( "No More Gumballs!  Sorry, can't return your quarter." ) ;
             }
         }
         else 
         {
-            if(this.sum > 0)
-                System.out.println( "Please insert a coin. Balance: "+this.sum) ;
-            else
-                System.out.println( "Please insert a coin." ) ;
+                System.out.println( "Please insert a Quarter." ) ;
         }        
     }
-    
     public String toString(){
-       return this.getName();
+       return this.getName()+ "\nNumber of Gumballs: " + this.num_gumballs ;
     } 
 }

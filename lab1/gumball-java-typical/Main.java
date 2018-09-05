@@ -1,4 +1,8 @@
-
+/**
+ * Main class
+ * @author Priyanka Singhal
+ * @version 1.0
+ */
 
 public class Main {
 
@@ -14,9 +18,14 @@ public class Main {
         singleQuarterGumballMachine.turnCrank();
         singleQuarterGumballMachine.insertCoin( 25 );
         singleQuarterGumballMachine.turnCrank();
+        singleQuarterGumballMachine.insertCoin( 25 );
         singleQuarterGumballMachine.turnCrank();
         
         System.out.println(doubleQuarterGumballMachine);
+        doubleQuarterGumballMachine.insertCoin( 25 );
+        doubleQuarterGumballMachine.turnCrank();
+        doubleQuarterGumballMachine.insertCoin( 25 );
+        doubleQuarterGumballMachine.turnCrank();
         doubleQuarterGumballMachine.insertCoin( 25 );
         doubleQuarterGumballMachine.turnCrank();
         doubleQuarterGumballMachine.insertCoin( 25 );
@@ -31,6 +40,10 @@ public class Main {
         allCoinGumballMachine.insertCoin( 10 );
         allCoinGumballMachine.turnCrank();
         allCoinGumballMachine.insertCoin( 10 );
+        allCoinGumballMachine.turnCrank();
+        allCoinGumballMachine.insertCoin( 25 );
+        allCoinGumballMachine.turnCrank();
+        allCoinGumballMachine.insertCoin( 25 );
         allCoinGumballMachine.turnCrank();
         
     }

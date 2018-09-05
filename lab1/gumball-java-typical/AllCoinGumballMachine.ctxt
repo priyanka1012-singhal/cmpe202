@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=AllCoinGumballMachine
+comment0.text=\n\ class\ AllCoinGumballMachine\ -\ This\ class\ accepts\ all\ coins\:\ dimes,\ nickels\ and\ Quarters\ and\ returns\ a\ gumball\ when\ the\ \n\ crank\ is\ turned.\n\n\ @author\ Priyanka\ Singhal\n\ @version\ 1.0\n
+comment1.params=size
+comment1.target=AllCoinGumballMachine(int)
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment3.params=coin
+comment3.target=void\ insertCoin(int)
+comment4.params=
+comment4.target=void\ turnCrank()
+comment5.params=
+comment5.target=java.lang.String\ toString()
+numComments=6
