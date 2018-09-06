@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=DoubleQuarterGumballMachine
+comment0.text=\n\ class\ DoubleQuarterGumballMachine\ -\ This\ class\ expects\ two\ quarters\ and\ follows\ a\ traditional\ \n\ gumball\ machine\ lifecycle.\n\n\ @author\ (Priyanka.singhal)\n\ @version\ (Sept\ 5,\ 2018)\n
+comment1.params=numberGumballs
+comment1.target=DoubleQuarterGumballMachine(int)
+comment2.params=coin
+comment2.target=void\ insertQuarter(int)
+comment3.params=
+comment3.target=void\ turnCrank()
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5

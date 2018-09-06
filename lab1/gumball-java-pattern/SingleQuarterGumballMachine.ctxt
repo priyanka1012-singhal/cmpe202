@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=SingleQuarterGumballMachine
+comment0.text=\n\ class\ SingleQuarterGumballMachine\ -\ This\ class\ accepts\ single\ quarter\ only\ and\ follows\ a\ traditional\ \n\ gumball\ machine\ lifecycle.\n\ \n\ @author\ (Priyanka.singhal)\n\ @version\ (Sept\ 4,\ 2018)\n
+comment1.params=numberGumballs
+comment1.target=SingleQuarterGumballMachine(int)
+comment2.params=coin
+comment2.target=void\ insertQuarter(int)
+comment3.params=
+comment3.target=void\ turnCrank()
+comment4.params=
+comment4.target=java.lang.String\ toString()
+numComments=5
