@@ -9,6 +9,7 @@ public class SingleQuarterGumballMachine extends GumballMachine
 {
     private int num_gumballs;
     private boolean has_quarter;
+    private int sum;
     public static final String MACHINE_NAME = "Single Quarter Gumball Machine";
 
     public SingleQuarterGumballMachine( int size )
@@ -16,6 +17,7 @@ public class SingleQuarterGumballMachine extends GumballMachine
         // initialise instance variables
         this.num_gumballs = size;
         this.has_quarter = false;
+        this.sum = 0;
     }
     
     public String getName(){
@@ -24,7 +26,9 @@ public class SingleQuarterGumballMachine extends GumballMachine
     public void insertCoin(int coin)
     {
         if ( coin == 25 )
-            this.has_quarter = true ;
+            sum += coin;
+            if(sum >= 25)
+                this.has_quarter = true;
         else 
             this.has_quarter = false ;
     }
@@ -35,6 +39,7 @@ public class SingleQuarterGumballMachine extends GumballMachine
         {
             if ( this.num_gumballs > 0 )
             {
+                this.sum = 0;
                 this.num_gumballs-- ;
                 this.has_quarter = false ;
                 System.out.println( "Thanks for your quarter.  Gumball Ejected!" ) ;

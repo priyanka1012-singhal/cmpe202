@@ -28,7 +28,7 @@ public class AllCoinGumballMachine extends GumballMachine
         if ( coin == 25 || coin == 5 || coin == 10)
         {
             sum += coin;
-            if(sum == 50)
+            if(sum >= 50)
                 this.has_quarter = true;
         }
         else 

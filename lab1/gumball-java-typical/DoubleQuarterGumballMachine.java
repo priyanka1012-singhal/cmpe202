@@ -28,7 +28,7 @@ public class DoubleQuarterGumballMachine extends GumballMachine
         if ( coin == 25 )
         {
             sum += coin;
-            if(sum == 50)
+            if(sum >= 50)
                 this.has_quarter = true;
         }    
         else
