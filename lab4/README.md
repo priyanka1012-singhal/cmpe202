@@ -2,88 +2,62 @@
 CLASS: Customer
 
 RESPONSIBILITIES:
-Maintains Customer Details
-Maintains the state of each Customer Object
-Implements Chain interface i.e sets next Chain (Customer) object and IF the table size is greater than or equal to customer’s party size then Notifies the customer, 
-ELSE  then
+
+1. Maintains Customer Details and party size
+2. Maintains the state of each Customer Object
+3. Implements Chain interface i.e sets next Chain (Customer) object and IF the table size is greater than or equal to its party size then either confirms or leaves 
+ELSE  
 Notifies the next customer in chain for processing.
 
 COLLABORATORS:
-Chain
-State
-WaitState
-LeaveState
-ConfirmState
-
-##############
-CLASS: WaitState
-
-RESPONSIBILITIES:
-Randomly assign next state (LeaveState or ConfirmState) to the customer object in chain
-Notifies the next customer in chain for processing 
-
-COLLABORATORS:
-
-##############
-CLASS: LeaveState
-
-RESPONSIBILITIES:
-
-Notifies the next customer in chain that the table is available
-
-COLLABORATORS:
-
-##############
-CLASS: ConfirmState
-
-RESPONSIBILITIES:
-
-Assigns the table to the customer.
-
-COLLABORATORS:
+Customer
 
 ##############
 CLASS: Table
 
 RESPONSIBILITIES:
 
-Bean class maintains the table details such as table size and state
+1. Maintains the table details such as table size and state.
+2. Implements subject interface. When the State changes to 'Available' notifies the Waiter class for further action
+
 
 COLLABORATORS:
+Waiter
 
 #############
 CLASS: Waiter
 
 RESPONSIBILITIES:
 
-Registers the customer ’s party Size and other details
+1. Registers the customer ’s party Size and other details
+
+2. This is observing the state of Table. When the table is 'Available'. This object is notified. Notifies the next customer in chain for processing. Based on the partysize customer takes a random call whether to Leave or Confirm. 
+3. When the customer leaves. The logic goes to next customer in chain for processing otherwise the chain breaks.
 
 Adds customer in a chain of waiting list
 
-Returns the next available table
 
-Notifies the next customer in chain for processing when the table is available. 
 
 COLLABORATORS:
-List of Table (Tables)
-Chain
+Table
+Customer
 
 #############
 Explanation
 Patterns used:
-1. State Pattern
+
+1. Observer Pattern
 2. Chain of Responsibility 
 
-State Pattern
-WaitState
-LeaveState
-ConfirmState
+Observer Pattern
+Subject - Table
+Observer - Waiter
 
-State pattern plays an important role in changing the customer state and performing state wise logic. when the customer is in waitState upon notification he can either be in a LeaveState or ConfirmState. When Customer is in a ConfirmState then the table is assigned to him otherwise another customer is notified.
+Observer Pattern plays and important role in notifying the Waiter object when the Table object has state = 'Available'. Control then goes to the Waiter's update method to check conditions such as party size and table size for table assignment.
 
 Chain of Responsibility Pattern
 Chain interface has 2 methods setNext() and performTask()
-Chain interface is implemented by Customer class. We are chaining the different objects of Customer class here. So that if the waiter notifies the customer and he chooses leaveState or if the table Size is smaller than the party Size then chain is set to the next customer object (or Chain object).
+Chain interface is implemented by Customer class. We are chaining the different objects of Customer class here. So that if the waiter notifies the customer and he chooses leave or if the table Size is smaller than the party Size then chain is set to the next customer object (or Chain object).
 
 
 
