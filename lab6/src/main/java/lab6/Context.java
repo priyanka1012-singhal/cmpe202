@@ -1,5 +1,12 @@
 package lab6;
 
+/**
+ * 
+ * @author priyankasinghal
+ * @version 1.0
+ * Context for strategy
+ *
+ */
 public class Context {
 	   private IPrintStrategy strategy;
 

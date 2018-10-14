@@ -1,7 +1,11 @@
 package lab6;
-
-import java.text.DecimalFormat;
-
+/**
+ * 
+ * @author priyankasinghal
+ * @version
+ * Leaf class for composite pattern
+ *
+ */
 public class Leaf implements Component {
 
    private String description ;
@@ -18,43 +22,47 @@ public class Leaf implements Component {
        description = d ;
    }
    
-   public double getPrice() {
-	   return price;
-   }
-
-   @Override
-   public void printDescription() {
-       System.out.println( " " + description + " " ) ;
-   }
-   
-   @Override
-	public void printPriceDescription() {
-	   DecimalFormat fmt = new DecimalFormat("0.00");
-	   StringBuffer str = new StringBuffer();
-       str.append(" " + description);
-       int descLen = str.length() ;
-       if (descLen < 35 ) {
-           int pad = (35 - descLen) / 2 ;
-           str.append(HelperUtility.padSpaces( pad ));
-       }
-       str.append(fmt.format(getPrice()));
-       System.out.println(str);
+   /**
+	 * Get the price
+	 * @return price
+	 */
+	@Override
+	public double getPrice() {
+		return price;
+	}
+	
+	/**
+	 * Get the description
+	 * @return description
+	 */
+	@Override
+	public String getDescription() {
+		return description;
 	}
 	 
-
+	/**
+	 * Add Child component (Not Used)
+	 * @return Component
+	 */
    public void addChild(Component c) {
 	    // no implementation
 	}
 
+   /**
+	 * Remove Child component (Not Used)
+	 * @return Component
+	 */
 	public void removeChild(Component c) {
        // no implementation
 	}
-
-	public Component getChild(int i) {
-       // no implementation
-       return null ;
-	}
-
 	
+	/**
+	 * @param component
+	 */
+	@Override
+	public int compareTo(Component c) {
+		return this.description.compareTo(c.getDescription());
+		
+	}
 }
 

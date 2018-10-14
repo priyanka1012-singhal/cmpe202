@@ -1,7 +1,11 @@
 
 package lab6 ;
 
-/** Slip Printing Strategy Interface */
+/** 
+ * @author priyankasinghal
+ * @version 1.0
+ * Slip Printing Strategy Interface 
+ * */
 public interface IPrintStrategy
 {
 	/**

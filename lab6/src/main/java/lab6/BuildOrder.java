@@ -1,29 +1,29 @@
 package lab6;
-
+/**
+ * 
+ * @author priyankasinghal
+ * @version 1.0 
+ * Build Customer's Order
+ *
+ */
 public class BuildOrder {
-
+	
+  /**
+   * Gets Order component	
+   * @return order component
+   */
   public static Component getOrder()
   {
       Composite order = new Composite( "Order" ) ;
 
       Burger burger = new Burger( "LBB",5.59) ;
-      
-      TopBun tb = new TopBun( "Top Options" ) ;
-      String[] tbOptions = { "LETTUCE","TOMATO" } ;
-      tb.setOptions( tbOptions ) ;
-      
-      MeatToppings meat = new MeatToppings( "Meat Topping Options" ) ;
-      String[] meatOptions = { "G ONION","JALA Grilled" } ;
-      meat.setOptions( meatOptions ) ;
-      
-      Patty patty = new Patty( "Patty Options" ) ;
-      String[] pattyOptions = { "BACON" } ;
-      patty.setOptions( pattyOptions ) ;
-      
       // Setup Burger Ingredients
-      burger.addChild( tb ) ;
-      burger.addChild( meat ) ;
-      burger.addChild( patty ) ;
+      burger.addChild( new Leaf("{{{{BACON}}}}")  ) ;
+      burger.addChild( new Leaf("LETTUCE") ) ;
+      burger.addChild( new Leaf("TOMATO") ) ;
+      burger.addChild( new Leaf("->|G ONION") ) ;
+      burger.addChild( new Leaf("->|JALA Grilled") ) ;
+      
             
       // Add Burger to the Order
       order.addChild( burger );

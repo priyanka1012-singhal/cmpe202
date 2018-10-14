@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Add/Remove/Iterate component objects
  *
  */
-public class Composite implements Component{
+public class Composite implements Component {
 	
 	protected ArrayList<Component> components = new ArrayList<Component>()  ;
     protected String description ;
@@ -34,28 +34,6 @@ public class Composite implements Component{
 	public void setComponents(ArrayList<Component> components) {
 		this.components = components;
 	}
-
-	/**
-     * Print Description of all the leaf components along with itself
-     */
-	@Override
-	public void printDescription() {
-		for(Component obj:components) {
-			obj.printDescription();
-		}
-		
-	}
-	
-	/**
-     * Print Description of all the leaf components along with itself
-     */
-	@Override
-	public void printPriceDescription() {
-		for(Component obj:components) {
-			obj.printPriceDescription();
-		}
-		
-	}
 	
 	/**
 	 * Add component to the list
@@ -77,20 +55,29 @@ public class Composite implements Component{
 	}
 	
 	/**
-	 * Get Component at a particular index in the list
-	 * @return Component
+	 * Get the price
+	 * @return price
 	 */
-	@Override
-	public Component getChild(int i) {
-		return components.get(i);
-	}
-
 	@Override
 	public double getPrice() {
 		return price;
 	}
-    
-    
-    
-    
+	
+	/**
+	 * Get the description
+	 * @return description
+	 */
+	@Override
+	public String getDescription() {
+		return description;
+	}
+	
+	/**
+	 * @param component
+	 */
+	@Override
+	public int compareTo(Component c) {
+		return this.description.compareTo(c.getDescription());
+		
+	}
 }
