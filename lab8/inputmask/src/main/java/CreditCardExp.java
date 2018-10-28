@@ -12,7 +12,7 @@ public class CreditCardExp implements IDisplayComponent, IKeyEventHandler
 
 	public String display() {
 		if ( date.equals("") )
-			return "[MM/YY]" + "  " ;
+			return "[MMYY]" + "  " ;
 		else
 			return "[" + date + "]" + "  " ;
 	}	
@@ -20,7 +20,11 @@ public class CreditCardExp implements IDisplayComponent, IKeyEventHandler
 	public void key(String ch, int cnt) {
 		if ( cnt >= 17 && cnt <= 20  ) {
 			if(ch.toUpperCase().matches("X|DELETE")){
-				date = date.substring(0, date.length()-1);
+				if(date.length() > 1) {
+					date = date.substring(0, date.length()-1);
+				} else {
+					date = "";
+				}
 			}else
 				date += ch ;
 		}

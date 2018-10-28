@@ -9,27 +9,10 @@ public class CreditCardNumDecorator extends CreditCardNum
 	   @Override
 	   public String display() {
 		  String display = super.display();
-		  if(display.length()>5) {
-			  display = display.substring(1,display.length()-1);
-			  char separator = ' ';
-			  int interval = 4;
-			  StringBuilder str = new StringBuilder(display);
-			  for(int i = 0; i < display.length() / interval; i++) {
-				  str.insert(((i + 1) * interval) + i, separator);
-			  }
-			  str.append("]");
-			  return str.toString().trim();
-		  }else {
-			  return display;
-		  }
-		  
-	   	  /*if(display.length()>4) {
-	   		 StringBuilder sb = new StringBuilder(display.substring(0, 3));
-	   		 sb.append("/");
-			 sb.append(display.substring(3, display.length()));
-			 return sb.toString().trim();
-	   	  }else
-	   		  return display;*/
+		  String shortenedDisplay = display.trim();
+		  shortenedDisplay = shortenedDisplay.substring(1, shortenedDisplay.length()-1);
+		  String newShortenedDisplay = shortenedDisplay.replaceAll("(.{" + 4 + "})", "$1 ").trim();
+		  return "[" + newShortenedDisplay + "] ";
 	   		   
    }
 	   

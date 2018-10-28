@@ -40,11 +40,12 @@ public class App {
 
     public void key(String ch) {
     	if(ch.toUpperCase().matches("X|DELETE") && count>0) {
-    		count --;
     		screen.key(ch, count);
+    		count--;
     	}else if (ch.matches("[0-9]")){
     		count++;
     		screen.key(ch, count);
+
     	}
          
     }

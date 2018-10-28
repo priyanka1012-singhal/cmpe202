@@ -12,7 +12,7 @@ public class CreditCardNum implements IDisplayComponent, IKeyEventHandler
 
 	public String display() {
 		if ( number.equals("") )
-			return "[4444 4444 4444 4444]" + "  " ;
+			return "[4444444444444444]" + "  " ;
 		else
 			return "[" + number + "]" + "  " ;
 	}	
@@ -20,8 +20,12 @@ public class CreditCardNum implements IDisplayComponent, IKeyEventHandler
 	public void key(String ch, int cnt) {
 		if ( cnt <= 16 ) {
 			if(ch.toUpperCase().matches("X|DELETE")){
-				number = number.substring(0, number.length()-1);
-			}else
+				if(number.length() > 1) {
+					number = number.substring(0, number.length()-1);
+				} else {
+					number = "";
+				}
+			}else 
 				number += ch ;
 		}
 			

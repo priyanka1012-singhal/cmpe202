@@ -9,14 +9,13 @@ public class CreditCardExpDecorator extends CreditCardExp
    
 	   public String display() {
 		  String display = super.display();
-	   	  /*if(display.length()>4) {
-	   		 StringBuilder sb = new StringBuilder(display.substring(0, 3));
-	   		 sb.append("/");
-			 sb.append(display.substring(3, display.length()));
-			 return sb.toString().trim();
-	   	  }else
-	   		  return display;*/
-		  return display;
+		  String shortenedDisplay = display.trim();
+		  shortenedDisplay = shortenedDisplay.substring(1, shortenedDisplay.length()-1);
+
+		  if(shortenedDisplay.length() >= 3) {
+			  shortenedDisplay = shortenedDisplay.substring(0, 2) + "/" + shortenedDisplay.substring(2);
+		  }
+		  return "[" + shortenedDisplay + "] ";
 	   		   
    }
 
