@@ -14,8 +14,8 @@ public class App {
     public App() {
 
         screen = new Screen();
-        num = new CreditCardNum();
-        exp = new CreditCardExp();
+        num = new CreditCardNumDecorator(new CreditCardNum());
+        exp = new CreditCardExpDecorator(new CreditCardExp());
         cvc = new CreditCardCVC();
 
         screen.addSubComponent(num);
@@ -39,8 +39,14 @@ public class App {
     }
 
     public void key(String ch) {
-        count++;
-        screen.key(ch, count);
+    	if(ch.toUpperCase().matches("X|DELETE") && count>0) {
+    		count --;
+    		screen.key(ch, count);
+    	}else if (ch.matches("[0-9]")){
+    		count++;
+    		screen.key(ch, count);
+    	}
+         
     }
 
 }

@@ -6,12 +6,13 @@ public class Screen implements IScreen, IDisplayComponent
 {
     private ArrayList<IDisplayComponent> components = new ArrayList<IDisplayComponent>() ;
     private IKeyEventHandler chain ;
+    
 
     public Screen()
     {
-        // no constructor elements
+    	
     }
-
+    
     public void key(String ch, int cnt) {
         chain.key(ch, cnt) ;
     }
