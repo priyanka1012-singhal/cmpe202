@@ -11,4 +11,4 @@ Setup screenshots folder - gumball/Screenshots
 
 Gumballv2 output
 
-![Gumballv2 output](./gumball/Screenshots/Eclipse - Gumballv2 AspectJ output.png) 
+![Gumballv2 output](gumball/Screenshots/Eclipse - Gumballv2 AspectJ output.png) 
